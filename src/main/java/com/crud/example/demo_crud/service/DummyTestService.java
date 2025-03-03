@@ -1,6 +1,6 @@
 package com.crud.example.demo_crud.service;
 
-public class DummyService {
+public class DummyTestService {
 
     public static int addTwoNumbers(int a, int b){
         return a+b;

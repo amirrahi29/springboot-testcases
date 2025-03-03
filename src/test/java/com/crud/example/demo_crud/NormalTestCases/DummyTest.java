@@ -1,7 +1,7 @@
 package com.crud.example.demo_crud.NormalTestCases;
 
 import com.crud.example.demo_crud.service.BlogService;
-import com.crud.example.demo_crud.service.DummyService;
+import com.crud.example.demo_crud.service.DummyTestService;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,14 +22,14 @@ public class DummyTest {
 
     @Test
     public void addTwoNumbersTest(){
-        int result = DummyService.addTwoNumbers(2,5);
+        int result = DummyTestService.addTwoNumbers(2,5);
         int expectedResult = 7;
         Assertions.assertEquals(expectedResult,result);
     }
 
     @Test
     public void substractTwoNumbersTest(){
-        int result = DummyService.substractTwoNumbers(9,5);
+        int result = DummyTestService.substractTwoNumbers(9,5);
         int expectedResult = 4;
         Assertions.assertEquals(expectedResult,result);
     }
