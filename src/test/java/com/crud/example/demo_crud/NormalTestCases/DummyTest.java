@@ -62,9 +62,12 @@ public class DummyTest {
 
     @Test
     public void compareTwoString(){
-        String a = "Hello";
-        String b = "Hello";
-        Assertions.assertEquals(a,b);
+//        String a = "Hello";
+//        String b = "Hello";
+
+        String name = new String("Hello");
+        String expectedName = new String("Hello");
+        Assertions.assertEquals(name,expectedName);
     }
 
     @Test
@@ -72,6 +75,24 @@ public class DummyTest {
         int a = 9;
         int b = 9;
         Assertions.assertEquals(a,b);
+    }
+
+    @Test
+    public void compareConditional(){
+        int a = 2;
+        int b = 2;
+        boolean result = a == b;
+
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void checkNotNull(){
+        //Object data = "null";
+        Object data = null;
+
+        //Assertions.assertNotNull(data);
+        Assertions.assertNull(data);
     }
 
 }
