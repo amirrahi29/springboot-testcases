@@ -5,7 +5,9 @@ import com.crud.example.demo_crud.service.DummyTestService;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class DummyTest {
 
@@ -94,5 +96,24 @@ public class DummyTest {
         //Assertions.assertNotNull(data);
         Assertions.assertNull(data);
     }
+
+    @Test
+    public void listCompare(){
+        List<Integer> result = Arrays.asList(1,4,5,6,8,9);
+        List<Integer> expectedResult = Arrays.asList(1,4,5,6,8,9);
+        Assertions.assertIterableEquals(expectedResult,result);
+    }
+
+    @Test
+    public void throwsErrors(){
+        Assertions.assertThrows(RuntimeException.class,()->{
+
+            //comment or uncomment exceptions
+           System.out.println("this is testing executables");
+           throw new RuntimeException("this is testing exception");
+        });
+    }
+
+    //also compare many things like list string, list integer, executables etc.
 
 }
