@@ -189,4 +189,27 @@ public class BlogServiceImpl implements BlogService {
         return responseMsg;
     }
 
+    @Override
+    public BasicResponseMsg getBlogByTitle(String title) {
+        BasicResponseMsg responseMsg = new BasicResponseMsg();
+        try {
+            Optional<BlogModel> blog = blogDao.findByBlogTitle(title);
+
+            if (blog.isPresent()) {
+                responseMsg.setStatus(200);
+                responseMsg.setMessage("Blog found");
+                responseMsg.setData(blog.get());
+            } else {
+                responseMsg.setStatus(404);
+                responseMsg.setMessage("Blog not found");
+                responseMsg.setData(null);
+            }
+        } catch (Exception e) {
+            responseMsg.setStatus(500);
+            responseMsg.setMessage("Error fetching blog: " + e.getMessage());
+            responseMsg.setData(null);
+        }
+        return responseMsg;
+    }
+
 }

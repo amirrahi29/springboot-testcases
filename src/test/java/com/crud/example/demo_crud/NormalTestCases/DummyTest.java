@@ -85,6 +85,7 @@ public class DummyTest {
         int b = 2;
         boolean result = a == b;
 
+        //Assertions.assertTrue(5>4);
         Assertions.assertTrue(result);
     }
 

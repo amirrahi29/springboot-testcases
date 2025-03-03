@@ -16,5 +16,6 @@ public interface BlogService {
     BasicResponseMsg updateBlog(BlogModel blogModel, MultipartFile blogImage);
 
     BasicResponseMsg deleteBlogById(BlogRequest blogRequest);
-    
+
+    BasicResponseMsg getBlogByTitle(String title);
 }
