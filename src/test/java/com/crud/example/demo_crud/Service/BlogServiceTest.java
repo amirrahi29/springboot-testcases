@@ -5,6 +5,9 @@ import com.crud.example.demo_crud.model.BlogModel;
 import com.crud.example.demo_crud.response.BasicResponseMsg;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
@@ -59,6 +62,30 @@ public class BlogServiceTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "title1",
+            "title2",
+            "title3",
+            "title4",
+            "title5"
+    })
+    public void testFindByBlogTitle(String title){
+        assertNotNull(blogDao.findByBlogTitle(title),"failed for: "+title);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "title1",
+            "title2",
+            "title3",
+            "title9m",
+            "title5"
+    })
+    public void testFindByBlogTitle1(String title){
+        assertNotNull(blogDao.findByBlogTitle(title),"failed for: "+title);
     }
 
 

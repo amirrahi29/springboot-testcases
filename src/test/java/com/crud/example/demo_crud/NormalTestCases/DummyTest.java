@@ -3,11 +3,16 @@ package com.crud.example.demo_crud.NormalTestCases;
 import com.crud.example.demo_crud.service.BlogService;
 import com.crud.example.demo_crud.service.DummyTestService;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DummyTest {
 
@@ -79,6 +84,7 @@ public class DummyTest {
         Assertions.assertEquals(a,b);
     }
 
+    //@Disabled
     @Test
     public void compareConditional(){
         int a = 2;
@@ -114,6 +120,17 @@ public class DummyTest {
            throw new RuntimeException("this is testing exception");
         });
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,2",
+            "2,10,12",
+            "3,3,6"
+    })
+    public void test(int a, int b, int expected){
+        assertEquals(expected,a+b);
+    }
+
 
     //also compare many things like list string, list integer, executables etc.
 
