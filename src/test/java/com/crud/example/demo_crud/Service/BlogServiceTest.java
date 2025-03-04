@@ -44,7 +44,6 @@ public class BlogServiceTest {
         BlogModel blogData = blog.get();
         //assertEquals(title, blogData.getBlogTitle(), "Blog title should match");
         Assertions.assertEquals(title, blogData.getBlogTitle(), "Blog title should match");
-
     }
 
     @Test
@@ -87,6 +86,5 @@ public class BlogServiceTest {
     public void testFindByBlogTitle1(String title){
         assertNotNull(blogDao.findByBlogTitle(title),"failed for: "+title);
     }
-
 
 }

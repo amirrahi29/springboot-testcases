@@ -4,7 +4,6 @@ import com.crud.example.demo_crud.model.BlogModel;
 import com.crud.example.demo_crud.response.BasicResponseMsg;
 import com.crud.example.demo_crud.response.BlogRequest;
 import com.crud.example.demo_crud.service.BlogService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +13,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RestController
 @RequestMapping("/api")
 public class BlogController {
-    
-    @Autowired
-    private BlogService blogService;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final BlogService blogService;
+    private final ObjectMapper objectMapper; // Make this final
+
+    // Constructor Injection for both dependencies
+    public BlogController(BlogService blogService, ObjectMapper objectMapper) {
+        this.blogService = blogService;
+        this.objectMapper = objectMapper;
+    }
 
     @PostMapping("addBlog")
     public ResponseEntity<BasicResponseMsg> addBlog(
@@ -96,6 +98,5 @@ public class BlogController {
         }
         return new ResponseEntity<>(responseMsg, HttpStatus.OK);
     }
-
 
 }
