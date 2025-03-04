@@ -5,7 +5,15 @@ public class BasicResponseMsg {
     private int status;
     private String message;
     private Object data;
-    
+
+    public BasicResponseMsg(){}
+
+    public BasicResponseMsg(int status,String message,Object data){
+        this.status = status;
+        this.message = message;
+        this.data = data;
+    }
+
     public int getStatus() {
         return status;
     }

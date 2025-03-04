@@ -5,6 +5,17 @@ public class BlogRequest {
     private String title;
     private String image;
     private String date;
+
+    // **Default Constructor**
+    public BlogRequest() {}
+
+    // **Constructor with all fields**
+    public BlogRequest(int id, String title, String image, String date) {
+        this.id = id;
+        this.title = title;
+        this.image = image;
+        this.date = date;
+    }
     
     public int getId() {
         return id;
